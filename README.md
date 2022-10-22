@@ -11,6 +11,14 @@ can be stored in the free tier, or 100,000 in the advanced tier.
 This modules splits a larger input into smaller chunks and stores them across
 multiple parameters, treating the parameter store almost like a filesystem.
 
+## License
+
+Released under the [GNU General Public License v3](LICENSE) license.
+
+## Demo
+
+Take a look in the [demo](demo) directory.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
