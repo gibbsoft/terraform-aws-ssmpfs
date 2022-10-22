@@ -13,11 +13,11 @@ multiple parameters, treating the parameter store almost like a filesystem.
 
 ## License
 
-Released under the [GNU General Public License v3](LICENSE) license.
+Released under the [GNU General Public License v3](https://github.com/gibbsoft/terraform-module-ssmpfs/blob/main/LICENSE) license.
 
 ## Demo
 
-Take a look in the [demo](demo) directory.
+Take a look in the [demo](https://github.com/gibbsoft/terraform-module-ssmpfs/blob/main/demo) directory.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
