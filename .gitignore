@@ -1,0 +1,11 @@
+.vagrant/
+**/.DS_Store
+**/.terraform/
+.terraform/
+**/.terraform.*
+**/terraform.tfstate*
+.project
+.pydevproject
+.settings/
+**/*.swp
+.vscode/
