@@ -37,6 +37,8 @@ content: |-
 
   {{ include "examples/example2.md" }}
 
+  {{ include "examples/example3.md" }}
+
 output:
   file: "README.md"
   mode: inject
