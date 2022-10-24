@@ -1,7 +1,7 @@
 ### Example 1 : Chunked file
 
 Due to the size (~10KB) of the file passed to `value` below, the module will store and retrieve
-the it over 3 x 4k 'blocks':
+it over 3 x 4k 'blocks':
 
 ```hcl
 module "ssmpfs" {
@@ -13,7 +13,7 @@ module "ssmpfs" {
 
 Terraform plan would look like this:
 
-```
+```text
 Terraform will perform the following actions:
 
   # module.ssmpfs.aws_ssm_parameter.ssmpfs[0] will be created
