@@ -11,14 +11,6 @@ can be stored in the free tier, or 100,000 in the advanced tier.
 This modules splits a larger input into smaller chunks and stores them across
 multiple parameters, treating the parameter store almost like a filesystem.
 
-## License
-
-Released under the [GNU General Public License v3](https://github.com/gibbsoft/terraform-module-ssmpfs/blob/main/LICENSE) license.
-
-## Demo
-
-Take a look in the [demo](https://github.com/gibbsoft/terraform-module-ssmpfs/blob/main/demo) directory.
-
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -48,7 +40,7 @@ No modules.
 | <a name="input_disable_number_when_single_block"></a> [disable\_number\_when\_single\_block](#input\_disable\_number\_when\_single\_block) | Disable format name with count when only one block is used | `bool` | `true` | no |
 | <a name="input_format"></a> [format](#input\_format) | Format of parameter name in SSM Parameter | `string` | `"%s/%s-of-%s"` | no |
 | <a name="input_name"></a> [name](#input\_name) | SSM Parameter name | `string` | n/a | yes |
-| <a name="input_type"></a> [type](#input\_type) | n/a | `string` | `"SecureString"` | no |
+| <a name="input_type"></a> [type](#input\_type) | Parameter Store provides support for three types of parameters: String, StringList, and SecureString | `string` | `"SecureString"` | no |
 | <a name="input_value"></a> [value](#input\_value) | Value to store in SSM Parameter | `string` | n/a | yes |
 
 ## Outputs
@@ -67,7 +59,7 @@ Some examples are below:
 ### Example 1 : Chunked file
 
 Due to the size (~10KB) of the file passed to `value` below, the module will store and retrieve
-the it over 3 x 4k 'blocks':
+it over 3 x 4k 'blocks':
 
 ```hcl
 module "ssmpfs" {
@@ -79,7 +71,7 @@ module "ssmpfs" {
 
 Terraform plan would look like this:
 
-```
+```text
 Terraform will perform the following actions:
 
   # module.ssmpfs.aws_ssm_parameter.ssmpfs[0] will be created
@@ -153,7 +145,7 @@ resource "random_password" "password" {
 
 Terraform plan would look like this:
 
-```
+```text
 Terraform will perform the following actions:
 
   # module.ssmpfs.aws_ssm_parameter.ssmpfs[0] will be created
@@ -176,11 +168,11 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 ### Example 3 : Retrieving chunked files via Ansbile
 
-This terraform module's `value` output has the complete secret, however often
-you may wish to retrieve and reconstitute a chunked file via a configuration
-management tool, such as Ansible.
+This terraform module's `value` output has the complete secret which can easily
+be consumed by other modules, however you may wish to retrieve and reconstitute
+a chunked file via a configuration management tool, such as Ansible.
 
-This small example reaches into to SSM and pulls out all the child SSM params
+This small example reaches into SSM and pulls out all the child SSM params
 for an entry point, sorts them and joins them back together in the right order,
 which it then writes to a local file. It leverages the [ssmpfs ansible role](https://galaxy.ansible.com/gibbsoft/ssmpfs).
 
@@ -191,6 +183,11 @@ which it then writes to a local file. It leverages the [ssmpfs ansible role](htt
       dest: output.txt
 ```
 
+## Demo
 
-<https://galaxy.ansible.com/gibbsoft/ssmpfs>
+Take a look in the [demo](https://github.com/gibbsoft/terraform-module-ssmpfs/blob/main/demo) directory.
+
+## License
+
+Released under the [GNU General Public License v3](https://github.com/gibbsoft/terraform-module-ssmpfs/blob/main/LICENSE) license.
 <!-- END_TF_DOCS -->

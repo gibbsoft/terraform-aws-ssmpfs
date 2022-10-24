@@ -21,7 +21,7 @@ resource "random_password" "password" {
 
 Terraform plan would look like this:
 
-```
+```text
 Terraform will perform the following actions:
 
   # module.ssmpfs.aws_ssm_parameter.ssmpfs[0] will be created

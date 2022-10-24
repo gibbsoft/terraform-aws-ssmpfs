@@ -22,8 +22,9 @@ variable "name" {
 }
 
 variable "type" {
-  type    = string
-  default = "SecureString"
+  description = "Parameter Store provides support for three types of parameters: String, StringList, and SecureString"
+  type        = string
+  default     = "SecureString"
 }
 
 variable "block_size" {
